@@ -45,6 +45,8 @@ hs_err_pid*
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
 
+./server
+
 # General
 .DS_Store
 .AppleDouble
