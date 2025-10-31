@@ -1,0 +1,10 @@
+name: PlanC6
+version: '1.0'
+main: de.theredno.planc.Main
+api-version: '1.21'
+authors: [ TheRedNo, Illy-Dev ]
+website: theredno.de
+commands:
+  give_all_items:
+  setlevel:
+  gem_menu:
