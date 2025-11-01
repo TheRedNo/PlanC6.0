@@ -21,8 +21,8 @@ public class BloodscytheAbility implements ItemAbility {
         Vector direction = eye.getDirection().normalize();
 
         double radius = 2.5; // size of half-circle
-        double travelDistance = 6.0; // distance traveled
-        double stepSize = 0.6; // move per tick
+        double travelDistance = 10.0; // distance traveled
+        double stepSize = 1.0; // move per tick
         int particlePoints = 20; // particles per arc
         double damageAmount = 6; // temporary vary with entchantment etc
 
@@ -67,7 +67,7 @@ public class BloodscytheAbility implements ItemAbility {
 
                 traveled += stepSize;
             }
-        }.runTaskTimer(Bukkit.getPluginManager().getPlugin("Planc"), 0L, 1L);
+        }.runTaskTimer(Main.getInstance(), 0L, 1L);
 
     }
 
