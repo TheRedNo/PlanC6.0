@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.IntStream;
 
 public class createMenu implements Listener {
 
@@ -188,25 +189,12 @@ public class createMenu implements Listener {
                 1, 2, 3, 4, 5, 6, 7, 10, 11, 12
         );
 
-        int gemSize = gemsConfigManager.getGemsSize(player);
+        List<ItemStack> configGems = gemsConfigManager.getGems(player);
 
-        Map<Integer, InvItemSlotData> gems = Map.of(
-                1, new InvItemSlotData(Gems.strengthGem.createItem(), 1),
-                2, new InvItemSlotData(Gems.healingGem.createItem(), 2),
-                3, new InvItemSlotData(Gems.airgem.createItem(), 3),
-                4, new InvItemSlotData(Gems.firegem.createItem(), 4),
-                5, new InvItemSlotData(Gems.irongem.createItem(), 5),
-                6, new InvItemSlotData(Gems.lightninggem.createItem(), 6),
-                7, new InvItemSlotData(Gems.sandgem.createItem(), 7),
-                8, new InvItemSlotData(Gems.icegem.createItem(), 10),
-                9, new InvItemSlotData(Gems.lavagem.createItem(), 11),
-                10, new InvItemSlotData(Gems.watergem.createItem(), 12)
-                );
+        Map<Integer, InvItemSlotData> gems = new HashMap<>();
 
-        /*for (int i = 1; i <= gemSize; i++) {
-            gems.put(i, new InvItemSlotData())
-        }*/
-
+        IntStream.range(0, configGems.size())
+                .forEach(i -> gems.put(i + 1, new InvItemSlotData(configGems.get(i), slots.get(i))));
 
 
         Inventory select = Bukkit.createInventory(null, 2 * 9, titel);
