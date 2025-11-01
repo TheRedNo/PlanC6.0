@@ -8,3 +8,5 @@ commands:
   give_all_items:
   setlevel:
   gem_menu:
+  addgem:
+  getgem:

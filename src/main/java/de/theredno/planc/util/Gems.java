@@ -10,6 +10,7 @@ import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.EquipmentSlotGroup;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -18,7 +19,9 @@ import org.bukkit.util.Vector;
 import org.bukkit.attribute.Attribute;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Gems {
 
@@ -513,6 +516,34 @@ public class Gems {
         GemAPI.register(icegem);
         GemAPI.register(lavagem);
         GemAPI.register(watergem);
+    }
+
+    private static final Map<String, ItemStack> gemMap = new HashMap<>();
+
+
+    static {
+        gemMap.put("strength_gem", strengthGem.createItem());
+        gemMap.put("healing_gem", healingGem.createItem());
+        gemMap.put("air_gem", airgem.createItem());
+        gemMap.put("fire_gem", firegem.createItem());
+        gemMap.put("iron_gem", irongem.createItem());
+        gemMap.put("lightning_gem", lightninggem.createItem());
+        gemMap.put("sand_gem", sandgem.createItem());
+        gemMap.put("ice_gem", icegem.createItem());
+        gemMap.put("lava_gem", lavagem.createItem());
+        gemMap.put("water_gem", watergem.createItem());
+    }
+
+    public static boolean exists(String name) {
+        return gemMap.containsKey(name.toLowerCase());
+    }
+
+    public static ItemStack getGem(String name) {
+        return gemMap.get(name.toLowerCase());
+    }
+
+    public static List<String> getAllGemNames() {
+        return gemMap.keySet().stream().toList();
     }
 
 
