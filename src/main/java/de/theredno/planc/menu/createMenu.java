@@ -3,6 +3,7 @@ package de.theredno.planc.menu;
 import de.theredno.planc.Main;
 import de.theredno.planc.api.GemAPI;
 import de.theredno.planc.api.createGem;
+import de.theredno.planc.manager.GemsConfigManager;
 import de.theredno.planc.util.Gems;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -23,13 +24,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class createMenu implements Listener {
 
-    public createMenu(JavaPlugin plugin) {
+    private static GemsConfigManager gemsConfigManager;
+
+    public createMenu(JavaPlugin plugin, GemsConfigManager gemsConfigManager) {
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
+        this.gemsConfigManager = gemsConfigManager;
     }
 
     private final Map<HumanEntity, Integer> activeTasks = new ConcurrentHashMap<>();
@@ -176,8 +181,15 @@ public class createMenu implements Listener {
         return recipes;
     }
 
-    public static Inventory createSelectMenu() {
+    public static Inventory createSelectMenu(Player player) {
         String titel = ChatColor.BLUE + "Gems Menu (Select)";
+
+        List<Integer> slots = List.of(
+                1, 2, 3, 4, 5, 6, 7, 10, 11, 12
+        );
+
+        int gemSize = gemsConfigManager.getGemsSize(player);
+
         Map<Integer, InvItemSlotData> gems = Map.of(
                 1, new InvItemSlotData(Gems.strengthGem.createItem(), 1),
                 2, new InvItemSlotData(Gems.healingGem.createItem(), 2),
@@ -190,6 +202,12 @@ public class createMenu implements Listener {
                 9, new InvItemSlotData(Gems.lavagem.createItem(), 11),
                 10, new InvItemSlotData(Gems.watergem.createItem(), 12)
                 );
+
+        /*for (int i = 1; i <= gemSize; i++) {
+            gems.put(i, new InvItemSlotData())
+        }*/
+
+
 
         Inventory select = Bukkit.createInventory(null, 2 * 9, titel);
 
@@ -219,11 +237,13 @@ public class createMenu implements Listener {
         InventoryView view = e.getView();
         ItemStack clickedItem = e.getCurrentItem();
 
+        if (!(e.getWhoClicked() instanceof Player player)) return;
+
         if (clickedItem == null) return;
 
         if (view.getTitle().equals(ChatColor.BLUE + "Gems Menu")) {
             if (clickedItem.getType() == Material.EMERALD && clickedItem.hasItemMeta() && clickedItem.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Select Gem")) {
-                e.getWhoClicked().openInventory(createSelectMenu());
+                e.getWhoClicked().openInventory(createSelectMenu(player));
                 return;
             }
 

@@ -34,6 +34,20 @@ public class GemsConfigManager {
         return items;
     }
 
+    @SuppressWarnings("unchecked")
+    public int getGemsSize(Player player) {
+        UUID uuid = player.getUniqueId();
+        List<?> raw = config.getList("gems." + uuid.toString(), new ArrayList<>());
+        List<ItemStack> items = new ArrayList<>();
+        for (Object o : raw) {
+            if (o instanceof ItemStack item) {
+                items.add(item);
+            }
+        }
+
+        return items.size();
+    }
+
     public void setGems(Player player, List<ItemStack> items) {
         UUID uuid = player.getUniqueId();
         config.set("gems." + uuid.toString(), items);

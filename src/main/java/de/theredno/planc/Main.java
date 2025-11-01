@@ -2,6 +2,7 @@ package de.theredno.planc;
 
 import de.theredno.planc.api.GemAPI;
 import de.theredno.planc.commands.*;
+import de.theredno.planc.listeners.CrateListener;
 import de.theredno.planc.listeners.GemListener;
 import de.theredno.planc.manager.GemsConfigManager;
 import de.theredno.planc.menu.createMenu;
@@ -18,7 +19,7 @@ public final class Main extends JavaPlugin {
         instance = this;
         GemAPI api = new GemAPI(this);
         gemsConfigManager = new GemsConfigManager(this);
-        createMenu menu = new createMenu(this);
+        createMenu menu = new createMenu(this, gemsConfigManager);
 
         getServer().getPluginManager().registerEvents(new GemListener(), this);
 
@@ -27,8 +28,12 @@ public final class Main extends JavaPlugin {
         getCommand("gem_menu").setExecutor(new GemsInvCommand());
         getCommand("addgem").setExecutor(new addGem(this));
         getCommand("addgem").setTabCompleter(new addGem(this));
+        this.getCommand("createcrate").setExecutor(new GiveCreateCommand());
 
         getCommand("getgem").setExecutor(new getGem(this));
+
+
+        getServer().getPluginManager().registerEvents(new CrateListener(this), this);
 
         Gems.createGems();
     }

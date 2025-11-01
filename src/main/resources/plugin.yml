@@ -10,3 +10,4 @@ commands:
   gem_menu:
   addgem:
   getgem:
+  createcrate:
