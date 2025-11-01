@@ -2,6 +2,7 @@ package de.theredno.planc;
 
 import de.theredno.planc.api.GemAPI;
 import de.theredno.planc.commands.*;
+import de.theredno.planc.listeners.ArmorAbilityListener;
 import de.theredno.planc.listeners.CrateListener;
 import de.theredno.planc.listeners.GemListener;
 import de.theredno.planc.listeners.ItemAbilityListener;
@@ -37,8 +38,8 @@ public final class Main extends JavaPlugin {
         getCommand("give_all_items").setExecutor(new giveAllItems());
         getCommand("setlevel").setExecutor(new setLevel());
         getCommand("gem_menu").setExecutor(new GemsInvCommand());
-        getCommand("addgem").setExecutor(new addGem(this));
-        getCommand("addgem").setTabCompleter(new addGem(this));
+        getCommand("addgem").setExecutor(new addGem());
+        getCommand("addgem").setTabCompleter(new addGem());
         this.getCommand("createcrate").setExecutor(new GiveCreateCommand());
 
         getCommand("getgem").setExecutor(new getGem());
