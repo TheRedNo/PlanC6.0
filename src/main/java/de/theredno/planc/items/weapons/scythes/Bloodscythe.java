@@ -19,6 +19,8 @@ public class Bloodscythe {
                 .setAbilityClass(BloodscytheAbility.class)
                 .addTagString("blood_scythe", "true")
                 .addTagInt("hits")
+                .setDamage(10)
+                .setSpeed(5)
                 .setItemModelTexture("planc", "blood_scythe")
                 .build();
     }

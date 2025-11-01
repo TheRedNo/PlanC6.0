@@ -3,6 +3,8 @@ package de.theredno.planc.util;
 import lombok.Setter;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -10,10 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ItemBuilder {
     private ItemStack item;
@@ -104,6 +103,17 @@ public class ItemBuilder {
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         return this;
     }
+
+    public ItemBuilder setDamage(double num) {
+        meta.addAttributeModifier(Attribute.ATTACK_DAMAGE, new AttributeModifier("generic.attackDamage", 10, AttributeModifier.Operation.ADD_NUMBER));
+        return this;
+    }
+
+    public ItemBuilder setSpeed(double num) {
+        meta.addAttributeModifier(Attribute.ATTACK_SPEED, new AttributeModifier("generic.attackSpeed", 5, AttributeModifier.Operation.ADD_NUMBER));
+        return this;
+    }
+
 
     public ItemBuilder setAbility(de.theredno.planc.util.AbilityTrigger trigger) {
         this.trigger = trigger;
