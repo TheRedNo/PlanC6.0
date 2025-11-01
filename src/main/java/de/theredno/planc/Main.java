@@ -34,7 +34,7 @@ public final class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ItemAbilityListener(this), this);
 
 
-        
+
         getCommand("give_all_items").setExecutor(new giveAllItems());
         getCommand("setlevel").setExecutor(new setLevel());
         getCommand("gem_menu").setExecutor(new GemsInvCommand());
