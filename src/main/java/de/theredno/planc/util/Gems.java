@@ -546,6 +546,10 @@ public class Gems {
         return gemMap.keySet().stream().toList();
     }
 
+    public static List<ItemStack> getAllGems() {
+        return new ArrayList<>(gemMap.values());
+    }
+
 
     /*
 

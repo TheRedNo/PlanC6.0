@@ -2,7 +2,7 @@ package de.theredno.planc;
 
 import de.theredno.planc.api.GemAPI;
 import de.theredno.planc.commands.*;
-import de.theredno.planc.listeners.ArmorAbilityListener;
+import de.theredno.planc.listeners.CrateListener;
 import de.theredno.planc.listeners.GemListener;
 import de.theredno.planc.listeners.ItemAbilityListener;
 import de.theredno.planc.manager.GemsConfigManager;
@@ -24,7 +24,7 @@ public final class Main extends JavaPlugin {
         instance = this;
         GemAPI api = new GemAPI(this);
         gemsConfigManager = new GemsConfigManager(this);
-        createMenu menu = new createMenu(this);
+        createMenu menu = new createMenu(this, gemsConfigManager);
 
 
         ItemBuilder.setPlugin(this);
@@ -37,10 +37,14 @@ public final class Main extends JavaPlugin {
         getCommand("give_all_items").setExecutor(new giveAllItems());
         getCommand("setlevel").setExecutor(new setLevel());
         getCommand("gem_menu").setExecutor(new GemsInvCommand());
-        getCommand("addgem").setExecutor(new addGem());
-        getCommand("addgem").setTabCompleter(new addGem());
+        getCommand("addgem").setExecutor(new addGem(this));
+        getCommand("addgem").setTabCompleter(new addGem(this));
+        this.getCommand("createcrate").setExecutor(new GiveCreateCommand());
 
         getCommand("getgem").setExecutor(new getGem());
+
+
+        getServer().getPluginManager().registerEvents(new CrateListener(this), this);
 
         Gems.createGems();
     }
