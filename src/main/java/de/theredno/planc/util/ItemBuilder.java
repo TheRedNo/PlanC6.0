@@ -126,10 +126,18 @@ public class ItemBuilder {
     }
 
 
-    public ItemBuilder addTag(String key) {
+    public ItemBuilder addTagString(String key, String value) {
         if (plugin != null) {
             NamespacedKey namespacedKey = new NamespacedKey(plugin, key);
-            meta.getPersistentDataContainer().set(namespacedKey, PersistentDataType.BYTE, (byte) 1);
+            meta.getPersistentDataContainer().set(namespacedKey, PersistentDataType.STRING, value);
+        }
+        return this;
+    }
+
+    public ItemBuilder addTagInt(String key) {
+        if (plugin != null) {
+            NamespacedKey namespacedKey = new NamespacedKey(plugin, key);
+            meta.getPersistentDataContainer().set(namespacedKey, PersistentDataType.INTEGER, 0);
         }
         return this;
     }
