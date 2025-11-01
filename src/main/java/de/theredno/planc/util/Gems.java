@@ -562,5 +562,5 @@ public class Gems {
     public static List<ItemStack> getAllGems() {
         return new ArrayList<>(gemMap.values());
     }
-    
+
 }
