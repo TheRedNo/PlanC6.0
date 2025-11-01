@@ -19,8 +19,8 @@ import java.util.Locale;
 public class getGem implements CommandExecutor {
     private final GemsConfigManager gemsConfigManager;
 
-    public getGem(Main plugin) {
-        this.gemsConfigManager = plugin.getGemsManager();
+    public getGem() {
+        this.gemsConfigManager = Main.getGemsConfigManager();
     }
 
     @Override
