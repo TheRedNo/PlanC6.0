@@ -40,7 +40,8 @@ public final class Main extends JavaPlugin {
         getCommand("gem_menu").setExecutor(new GemsInvCommand());
         getCommand("addgem").setExecutor(new addGem());
         getCommand("addgem").setTabCompleter(new addGem());
-        this.getCommand("createcrate").setExecutor(new GiveCreateCommand());
+        getCommand("createcrate").setExecutor(new GiveCreateCommand());
+        getCommand("tpa").setExecutor(new TpaCommand());
 
         getCommand("getgem").setExecutor(new getGem());
 

@@ -16,3 +16,4 @@ commands:
     permission: planc.get
   createcrate:
     permission: planc.crate
+  tpa:
