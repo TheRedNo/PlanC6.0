@@ -10,6 +10,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,7 +23,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.w3c.dom.stylesheets.LinkStyle;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -190,7 +193,9 @@ public class createMenu implements Listener {
         );
 
         List<ItemStack> configGems = gemsConfigManager.getGems(player);
-
+        for (ItemStack item : configGems) {
+            createGem.updateItemLevelLore(item, createGem.getLevelFromItem(item));
+        }
         Map<Integer, InvItemSlotData> gems = new HashMap<>();
 
         IntStream.range(0, configGems.size())
@@ -206,14 +211,20 @@ public class createMenu implements Listener {
             select.setItem(slot, gem);
         }
 
+        ItemStack noneIcon = new ItemStack(Material.BLUE_STAINED_GLASS_PANE);
+        ItemMeta noneIconMeta = noneIcon.getItemMeta();
+
+        noneIconMeta.setDisplayName(ChatColor.BLUE + "Select None");
+        noneIcon.setItemMeta(noneIconMeta);
+
         ItemStack backIcon = new ItemStack(Material.RED_STAINED_GLASS_PANE);
         ItemMeta backIconMeta = backIcon.getItemMeta();
 
         backIconMeta.setDisplayName(ChatColor.RED + "Back");
-
         backIcon.setItemMeta(backIconMeta);
 
         select.setItem(17, backIcon);
+        select.setItem(9, noneIcon);
 
         return select;
     }
@@ -267,27 +278,44 @@ public class createMenu implements Listener {
         }
 
 
-
-        /*
-        Map<Integer, InvItemSlotData> ingredients= Map.of(
-                1, new InvItemSlotData(new ItemStack(Material.NETHERITE_INGOT), 10),
-                2, new InvItemSlotData(new ItemStack(Material.EXPERIENCE_BOTTLE), 11),
-                3, new InvItemSlotData(new ItemStack(Material.NETHERITE_INGOT), 12),
-                4, new InvItemSlotData(new ItemStack(Material.DIAMOND_BLOCK), 19),
-                5, new InvItemSlotData(Gem1Template, 20),
-                6, new InvItemSlotData(new ItemStack(Material.DIAMOND_BLOCK), 21),
-                7, new InvItemSlotData(new ItemStack(Material.NETHERITE_INGOT), 28),
-                8, new InvItemSlotData(new ItemStack(Material.EXPERIENCE_BOTTLE), 29),
-                9, new InvItemSlotData(new ItemStack(Material.NETHERITE_INGOT), 30),
-                10, new InvItemSlotData(Gem2Template, 24)
-        );
-         */
-
         if (view.getTitle().equals(ChatColor.BLUE + "Gems Menu (Select)")) {
             if (clickedItem.getType() == Material.RED_STAINED_GLASS_PANE && clickedItem.hasItemMeta() && clickedItem.getItemMeta().getDisplayName().equals(ChatColor.RED + "Back")) {
                 e.getWhoClicked().openInventory(createMainMenu());
                 return;
             }
+
+            if (clickedItem.getType() == Material.BLUE_STAINED_GLASS_PANE && clickedItem.hasItemMeta() && clickedItem.getItemMeta().getDisplayName().equals(ChatColor.BLUE + "Select None")) {
+                e.setCancelled(true);
+
+                for (ItemStack item : player.getInventory().getContents()) {
+                    if (createGem.isGem(item)) {
+                        player.getInventory().removeItem(item);
+                        gemsConfigManager.updateGemLevel(player, gemsConfigManager.getSelected(player), createGem.getLevelFromItem(item));
+                    }
+                }
+
+                gemsConfigManager.setSelected(player, null);
+                return;
+            }
+
+            if (createGem.isGem(clickedItem)) {
+                String gemId = createGem.getGemIdFromItem(clickedItem);
+
+                for (ItemStack item : player.getInventory().getContents()) {
+                    if (createGem.isGem(item)) {
+                        player.getInventory().removeItem(item);
+                        gemsConfigManager.updateGemLevel(player, gemsConfigManager.getSelected(player), createGem.getLevelFromItem(item));
+                    }
+                }
+
+                gemsConfigManager.setSelected(player, null);
+                gemsConfigManager.setSelected(player, gemId);
+
+                player.getInventory().addItem(clickedItem);
+
+                player.sendMessage(ChatColor.GOLD + "Selected: " + Gems.getGem(gemId).getItemMeta().getDisplayName());
+            }
+
             e.setCancelled(true);
         }
 

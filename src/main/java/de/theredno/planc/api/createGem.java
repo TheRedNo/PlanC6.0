@@ -113,7 +113,7 @@ public class createGem {
         return getLevelFromItem(item);
     }
 
-    public void updateItemLevelLore(ItemStack item, int newLevel) {
+    public static void updateItemLevelLore(ItemStack item, int newLevel) {
         if (item == null || !item.hasItemMeta()) return;
         ItemMeta meta = item.getItemMeta();
         PersistentDataContainer data = meta.getPersistentDataContainer();
