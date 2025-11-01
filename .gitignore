@@ -45,7 +45,7 @@ hs_err_pid*
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
 
-./server
+server
 /server/world/session.lock
 /server/world/**/session.lock
 /server/world/**/level.dat
