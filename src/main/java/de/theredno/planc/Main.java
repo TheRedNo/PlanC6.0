@@ -8,7 +8,6 @@ import de.theredno.planc.menu.createMenu;
 import de.theredno.planc.util.Gems;
 import de.theredno.planc.util.ItemBuilder;
 import lombok.Getter;
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -26,7 +25,6 @@ public final class Main extends JavaPlugin {
         gemsConfigManager = new GemsConfigManager(this);
         createMenu menu = new createMenu(this, gemsConfigManager);
 
-
         ItemBuilder.setPlugin(this);
 
         getServer().getPluginManager().registerEvents(new GemListener(), this);
@@ -34,6 +32,7 @@ public final class Main extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new ArmorAbilityListener(this), this);
         getServer().getPluginManager().registerEvents(new ItemAbilityListener(this), this);
+        
 
         getCommand("give_all_items").setExecutor(new giveAllItems());
         getCommand("setlevel").setExecutor(new setLevel());
@@ -46,6 +45,7 @@ public final class Main extends JavaPlugin {
         getCommand("getgem").setExecutor(new getGem());
 
 
+
         getServer().getPluginManager().registerEvents(new CrateListener(), this);
 
         Gems.createGems();
@@ -55,5 +55,5 @@ public final class Main extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
     }
-    
+
 }
