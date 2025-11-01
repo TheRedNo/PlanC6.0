@@ -107,10 +107,16 @@ public class HookAbility implements ItemAbility {
 
                 as.getEquipment().setHelmet(helmet);
             });
+            
+            Vector dir = end.toVector().subtract(stand.getLocation().toVector());
+            Location fixedLoc = stand.getLocation().clone();
+            fixedLoc.setDirection(dir);
+            stand.teleport(fixedLoc);
 
             chain.add(stand);
         }
     }
+
 
 
     private void updateChain(Location start, Location end, List<ArmorStand> chain) {
@@ -123,9 +129,15 @@ public class HookAbility implements ItemAbility {
 
         for (ArmorStand stand : chain) {
             loc.add(step);
-            stand.teleport(loc);
+
+            Vector dir = end.toVector().subtract(loc.toVector());
+            Location fixedLoc = loc.clone();
+            fixedLoc.setDirection(dir);
+
+            stand.teleport(fixedLoc);
         }
     }
+
 
     private void removeChain(List<ArmorStand> chain) {
         for (ArmorStand stand : chain) {
