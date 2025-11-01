@@ -21,8 +21,6 @@ import org.bukkit.scheduler.BukkitTask;
 import java.util.*;
 
 public class CrateListener implements Listener {
-
-    private final JavaPlugin plugin;
     private final GemsConfigManager gemsConfigManager;
     private final Random random = new Random();
 
@@ -34,9 +32,8 @@ public class CrateListener implements Listener {
     private final List<WeightedGem> weightedGems = new ArrayList<>();
 
 
-    public CrateListener(Main plugin) {
-        this.plugin = plugin;
-        this.gemsConfigManager = plugin.getGemsManager();
+    public CrateListener() {
+        gemsConfigManager = Main.getGemsConfigManager();
 
         // Beispiel: Gems registrieren mit Wahrscheinlichkeiten
         weightedGems.add(new WeightedGem(Gems.getGem("strength_gem"), 10));
@@ -104,7 +101,7 @@ public class CrateListener implements Listener {
                     task.cancel();
                 }
             }
-        }.runTaskTimer(plugin, 0L, 2L);
+        }.runTaskTimer(Main.getInstance(), 0L, 2L);
     }
 
     private void reward(Player player, ItemStack rewardGem) {

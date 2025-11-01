@@ -19,8 +19,8 @@ import java.util.stream.Collectors;
 public class addGem implements CommandExecutor, TabCompleter {
     private final GemsConfigManager gemsConfigManager;
 
-    public addGem(Main plugin) {
-        this.gemsConfigManager = plugin.getGemsManager();
+    public addGem() {
+        this.gemsConfigManager = Main.getGemsConfigManager();
     }
 
     @Override

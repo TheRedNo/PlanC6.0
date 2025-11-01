@@ -2,16 +2,22 @@ package de.theredno.planc;
 
 import de.theredno.planc.api.GemAPI;
 import de.theredno.planc.commands.*;
+import de.theredno.planc.listeners.ArmorAbilityListener;
 import de.theredno.planc.listeners.CrateListener;
 import de.theredno.planc.listeners.GemListener;
+import de.theredno.planc.listeners.ItemAbilityListener;
 import de.theredno.planc.manager.GemsConfigManager;
 import de.theredno.planc.menu.createMenu;
 import de.theredno.planc.util.Gems;
+import de.theredno.planc.util.ItemBuilder;
+import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
 
+    @Getter
     private static Main instance;
+    @Getter
     private static GemsConfigManager gemsConfigManager;
 
     @Override
@@ -21,19 +27,25 @@ public final class Main extends JavaPlugin {
         gemsConfigManager = new GemsConfigManager(this);
         createMenu menu = new createMenu(this, gemsConfigManager);
 
+
+        ItemBuilder.setPlugin(this);
+
         getServer().getPluginManager().registerEvents(new GemListener(), this);
+
+        getServer().getPluginManager().registerEvents(new ArmorAbilityListener(this), this);
+        getServer().getPluginManager().registerEvents(new ItemAbilityListener(this), this);
 
         getCommand("give_all_items").setExecutor(new giveAllItems());
         getCommand("setlevel").setExecutor(new setLevel());
         getCommand("gem_menu").setExecutor(new GemsInvCommand());
-        getCommand("addgem").setExecutor(new addGem(this));
-        getCommand("addgem").setTabCompleter(new addGem(this));
+        getCommand("addgem").setExecutor(new addGem());
+        getCommand("addgem").setTabCompleter(new addGem());
         this.getCommand("createcrate").setExecutor(new GiveCreateCommand());
 
-        getCommand("getgem").setExecutor(new getGem(this));
+        getCommand("getgem").setExecutor(new getGem());
 
 
-        getServer().getPluginManager().registerEvents(new CrateListener(this), this);
+        getServer().getPluginManager().registerEvents(new CrateListener(), this);
 
         Gems.createGems();
     }
@@ -43,11 +55,4 @@ public final class Main extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public static Main getInstance() {
-        return instance;
-    }
-
-    public static GemsConfigManager getGemsManager() {
-        return gemsConfigManager;
-    }
 }
