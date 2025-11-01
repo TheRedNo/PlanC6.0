@@ -19,7 +19,7 @@ import java.util.List;
 
 public class HookAbility implements ItemAbility {
 
-    private final double range = 20.0;
+    private final double range = 50.0;
     private final double hookSpeed = 1.5;
     private final double pullSpeed = 0.5;
     private final double hitRadius = 1.0;
