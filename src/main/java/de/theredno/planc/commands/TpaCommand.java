@@ -1,5 +1,7 @@
 package de.theredno.planc.commands;
 
+import de.theredno.planc.Main;
+import de.theredno.planc.TpaSystem;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -26,7 +28,7 @@ public class TpaCommand implements CommandExecutor {
                 }
 
                 if (Bukkit.getOnlinePlayers().contains(args[1])) {
-
+                    TpaSystem.sendTpaRequest(player, Bukkit.getPlayer(args[1]));
                 }
 
             default:
