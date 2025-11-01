@@ -1,6 +1,7 @@
 package de.theredno.planc.commands;
 
 import de.theredno.planc.items.weapons.scythes.Bloodscythe;
+import de.theredno.planc.items.weapons.special.Hook;
 import de.theredno.planc.util.Gems;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,6 +18,8 @@ public class giveAllItems implements CommandExecutor {
 
         Player player = (Player) sender;
 
+        player.getInventory().addItem(Bloodscythe.create());
+        player.getInventory().addItem(Hook.create());
         player.getInventory().addItem(Gems.strengthGem.createItem());
         player.getInventory().addItem(Gems.healingGem.createItem());
         player.getInventory().addItem(Gems.airgem.createItem());
@@ -27,7 +30,7 @@ public class giveAllItems implements CommandExecutor {
         player.getInventory().addItem(Gems.icegem.createItem());
         player.getInventory().addItem(Gems.lavagem.createItem());
         player.getInventory().addItem(Gems.watergem.createItem());
-        player.getInventory().addItem(Bloodscythe.create());
+
 
         return true;
     }
