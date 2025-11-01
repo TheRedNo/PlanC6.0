@@ -45,7 +45,7 @@ public final class Main extends JavaPlugin {
         getCommand("getgem").setExecutor(new getGem());
 
 
-        getServer().getPluginManager().registerEvents(new CrateListener(this), this);
+        getServer().getPluginManager().registerEvents(new CrateListener(), this);
 
         Gems.createGems();
     }
