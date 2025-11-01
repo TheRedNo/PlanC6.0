@@ -1,0 +1,4 @@
+* text=auto
+*.yml text eol=lf
+*.json text eol=lf
+*.java text eol=lf

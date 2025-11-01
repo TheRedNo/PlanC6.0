@@ -46,6 +46,10 @@ hs_err_pid*
 .nfs*
 
 ./server
+/server/world/session.lock
+/server/world/**/session.lock
+/server/world/**/level.dat
+/server/world/**/region/*.mca
 
 # General
 .DS_Store
