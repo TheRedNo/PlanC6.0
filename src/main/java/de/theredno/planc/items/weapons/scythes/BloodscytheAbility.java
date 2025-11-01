@@ -6,6 +6,10 @@ import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
@@ -16,6 +20,15 @@ public class BloodscytheAbility implements ItemAbility {
 
     @Override
     public void execute(Player player) {
+        NamespacedKey hitsKey = new NamespacedKey(Main.getInstance(), "hits");
+
+        ItemStack weapon = player.getItemInHand();
+        ItemMeta meta = weapon.getItemMeta();
+        PersistentDataContainer data = meta.getPersistentDataContainer();
+
+        int hits = data.getOrDefault(hitsKey, PersistentDataType.INTEGER, 0);
+        if (hits != 5) return;
+
         World world = player.getWorld();
         Location eye = player.getEyeLocation();
         Vector direction = eye.getDirection().normalize();
@@ -69,6 +82,11 @@ public class BloodscytheAbility implements ItemAbility {
             }
         }.runTaskTimer(Main.getInstance(), 0L, 1L);
 
+
+        meta.setDisplayName("§4§lBlood Scythe ⬦⬦⬦⬦⬦");
+
+        data.set(hitsKey, PersistentDataType.INTEGER, 0);
+        weapon.setItemMeta(meta);
     }
 
 

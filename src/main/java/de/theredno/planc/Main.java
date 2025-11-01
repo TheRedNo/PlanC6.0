@@ -2,10 +2,7 @@ package de.theredno.planc;
 
 import de.theredno.planc.api.GemAPI;
 import de.theredno.planc.commands.*;
-import de.theredno.planc.listeners.ArmorAbilityListener;
-import de.theredno.planc.listeners.CrateListener;
-import de.theredno.planc.listeners.GemListener;
-import de.theredno.planc.listeners.ItemAbilityListener;
+import de.theredno.planc.listeners.*;
 import de.theredno.planc.manager.GemsConfigManager;
 import de.theredno.planc.menu.createMenu;
 import de.theredno.planc.util.Gems;
@@ -31,6 +28,7 @@ public final class Main extends JavaPlugin {
         ItemBuilder.setPlugin(this);
 
         getServer().getPluginManager().registerEvents(new GemListener(), this);
+        getServer().getPluginManager().registerEvents(new DamageListener(), this);
 
         getServer().getPluginManager().registerEvents(new ArmorAbilityListener(this), this);
         getServer().getPluginManager().registerEvents(new ItemAbilityListener(this), this);
