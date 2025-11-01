@@ -66,7 +66,8 @@ public class Gems {
             .setPassiveEffect(p -> {
                 p.addPotionEffect(new PotionEffect(PotionEffectType.HASTE, 5 * 20, 1, false));
 
-            });
+            })
+            .setItemModelTexture("planc", "strength_gem");
 
     public static final createGem healingGem = new createGem("healing_gem", Material.EMERALD)
             .setDisplayName(ChatColor.GREEN + "Healing Gem")
@@ -103,13 +104,17 @@ public class Gems {
 
                 nearestPlayer.setMaxHealth(enemieHealth);
                 HealingGemManager.healthLimitPlayer.put(nearestPlayer, System.currentTimeMillis());
-            }).setRightClickAbility(p -> {
+            })
+            .setRightClickAbility(p -> {
                 p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 10 * 20, 1, false));
-            }).setShiftRightClickAbility(p -> {
+            })
+            .setShiftRightClickAbility(p -> {
                 p.setHealth(20);
-            }).setPassiveEffect(p -> {
+            })
+            .setPassiveEffect(p -> {
                 p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 5 * 20, 0, false));
-            });
+            })
+            .setItemModelTexture("planc", "healing_gem");
 
     public static final createGem airgem = new createGem("air_gem", Material.EMERALD)
             .setDisplayName(ChatColor.GREEN + "Air Gem")
@@ -174,7 +179,8 @@ public class Gems {
             })
             .setPassiveEffect(p -> {
 
-            });
+            })
+            .setItemModelTexture("planc", "air_gem");
 
     public static createGem firegem = new createGem("fire_gem", Material.EMERALD)
             .setDisplayName(ChatColor.GREEN + "Fire Gem")
@@ -228,7 +234,8 @@ public class Gems {
             })
             .setPassiveEffect(p -> {
                 p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 60 * 20, 0, false));
-            });
+            })
+            .setItemModelTexture("planc", "fire_gem");
 
     public static createGem irongem = new createGem("iron_gem", Material.EMERALD)
             .setDisplayName(ChatColor.GREEN + "Iron Gem")
@@ -313,7 +320,8 @@ public class Gems {
             })
             .setPassiveEffect(p -> {
                 p.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 5 * 20, 0, false));
-            });
+            })
+            .setItemModelTexture("planc", "iron_gem");
 
     public static createGem lightninggem = new createGem("lightning_gem", Material.EMERALD)
             .setDisplayName(ChatColor.GREEN + "Lightning Gem")
@@ -370,7 +378,8 @@ public class Gems {
             })
             .setPassiveEffect(p -> {
                 p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 5 * 20, 0, false));
-            });
+            })
+            .setItemModelTexture("planc", "lightning_gem");
 
     public static createGem sandgem = new createGem("sand_gem", Material.EMERALD)
             .setDisplayName(ChatColor.GREEN + "Sand Gem")
@@ -390,7 +399,8 @@ public class Gems {
             })
             .setPassiveEffect(p -> {
                 p.addPotionEffect(new PotionEffect(PotionEffectType.HASTE, 5 * 20, 0, false));
-            });
+            })
+            .setItemModelTexture("planc", "sand_gem");
 
     public static createGem icegem = new createGem("ice_gem", Material.EMERALD)
             .setDisplayName(ChatColor.GREEN + "Ice Gem")
@@ -411,7 +421,8 @@ public class Gems {
             })
             .setPassiveEffect(p -> {
                 p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 5 * 20, 0, false));
-            });
+            })
+            .setItemModelTexture("planc", "ice_gem");
 
     public static createGem lavagem = new createGem("lava_gem", Material.EMERALD)
             .setDisplayName(ChatColor.GREEN + "Lava Gem")
@@ -433,7 +444,8 @@ public class Gems {
             })
             .setPassiveEffect(p -> {
                 p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 5 * 20, 0, false));
-            });
+            })
+            .setItemModelTexture("planc", "lava_gem");
 
     public static createGem watergem = new createGem("water_gem", Material.EMERALD)
             .setDisplayName(ChatColor.GREEN + "Water Gem")
@@ -502,7 +514,8 @@ public class Gems {
                 if (p.getLocation().getBlock().getType().equals(Material.WATER)) {
                     p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 5 * 20, 0, false));
                 }
-            });
+            })
+            .setItemModelTexture("planc", "water_gem");
 
 
     public static void createGems() {
@@ -549,18 +562,5 @@ public class Gems {
     public static List<ItemStack> getAllGems() {
         return new ArrayList<>(gemMap.values());
     }
-
-
-    /*
-
-    ItemStack item = player.getInventory().getItemInMainHand();
-    CustomItem custom = CustomItemAPI.getFromItem(item);
-    if (custom != null) {
-        int newLevel = custom.getLevelFromItem(item) + 1;
-        custom.setLevelOnItem(item, newLevel);
-        player.sendMessage("§aDein Item ist jetzt Level " + newLevel + "!");
-    }
-
-
-    */
+    
 }

@@ -1,7 +1,10 @@
 package de.theredno.planc.api;
 
 import de.theredno.planc.manager.CooldownManager;
+import de.theredno.planc.util.ItemBuilder;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -30,9 +33,15 @@ public class createGem {
     private final Map<Player, Long> rightClickCooldown = new HashMap<>();
     private final Map<Player, Long> shiftRightClickCooldown = new HashMap<>();
 
+    ItemStack item;
+    ItemMeta meta;
+
     public createGem(String id, Material material) {
         this.id = id;
         this.material = material;
+
+        item = new ItemStack(material);
+        meta = item.getItemMeta();
     }
 
     public createGem setDisplayName (String name) {
@@ -74,9 +83,12 @@ public class createGem {
         return this;
     }
 
+    public createGem setItemModelTexture(String pack, String item) {
+        meta.setItemModel(new NamespacedKey(pack, item));
+        return this;
+    }
+
     public ItemStack createItem() {
-        ItemStack item = new ItemStack(material);
-        ItemMeta meta = item.getItemMeta();
 
         if (meta != null) {
             meta.setDisplayName(displayName);
