@@ -8,6 +8,8 @@ import de.theredno.planc.menu.createMenu;
 import de.theredno.planc.util.Gems;
 import de.theredno.planc.util.ItemBuilder;
 import lombok.Getter;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
@@ -53,5 +55,5 @@ public final class Main extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
     }
-
+    
 }
