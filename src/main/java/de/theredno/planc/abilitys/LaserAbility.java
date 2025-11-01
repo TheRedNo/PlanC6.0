@@ -26,7 +26,9 @@ public class LaserAbility {
 
                 // Falls Block getroffen → abbrechen
                 if (world.getBlockAt(point).getType().isSolid()) {
-                    world.spawnParticle(Particle.FLASH, point, 1);
+
+                    Color color = Color.YELLOW;
+                    world.spawnParticle(Particle.FLASH, point, 1, color);
                     cancel();
                     return;
                 }
