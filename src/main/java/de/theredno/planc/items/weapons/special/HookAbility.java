@@ -6,10 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
-import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -42,7 +39,7 @@ public class HookAbility implements ItemAbility {
                     hookLocation.getWorld().playSound(hookLocation, Sound.ENTITY_SNOWBALL_THROW, 0.5f, 1f);
 
                     for (Entity entity : hookLocation.getWorld().getNearbyEntities(hookLocation, hitRadius, hitRadius, hitRadius)) {
-                        if (entity instanceof LivingEntity && entity != player) {
+                        if (entity instanceof LivingEntity && entity != player && !(entity instanceof ArmorStand)) {
                             hookedEntity = entity;
                             hookFlying = false;
 
@@ -101,9 +98,9 @@ public class HookAbility implements ItemAbility {
 
                 if (meta != null) {
                     if (finalI == steps - 1) {
-                        meta.setItemModel(new NamespacedKey("planc", "chain_end"));
+                        meta.setItemModel(new NamespacedKey("planc", "hook"));
                     } else {
-                        meta.setItemModel(new NamespacedKey("planc", "chain"));
+                        meta.setItemModel(new NamespacedKey("planc", "rope"));
                     }
                     helmet.setItemMeta(meta);
                 }
