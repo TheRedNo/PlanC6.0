@@ -1,4 +1,4 @@
-package de.theredno.planc;
+package de.theredno.planc.TPA;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -8,7 +8,6 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
