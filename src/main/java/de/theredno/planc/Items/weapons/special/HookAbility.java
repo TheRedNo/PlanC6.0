@@ -39,6 +39,13 @@ public class HookAbility implements ItemAbility {
             @Override
             public void run() {
 
+                if (!player.isOnline() || player.isDead()) {
+                    removeChain(chain);
+                    this.cancel();
+                    return;
+                }
+
+
                 if (hookFlying) {
                     hookLocation.add(direction.clone().multiply(hookSpeed));
                     hookLocation.getWorld().playSound(hookLocation, Sound.ENTITY_SNOWBALL_THROW, 0.3f, 1.1f);
@@ -113,11 +120,6 @@ public class HookAbility implements ItemAbility {
                     Vector currentVel = player.getVelocity();
 
 
-//                    if (player.getLocation().add(currentVel.clone().multiply(2)).getBlock().getType().isSolid()) {
-//                        removeChain(chain);
-//                        this.cancel();
-//                        return;
-//                    }
 
                     Vector newVel = currentVel.add(pull.multiply(speedMultiplier)).multiply(0.9);
                     player.setVelocity(newVel);
