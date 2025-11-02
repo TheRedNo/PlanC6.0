@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class Hook {
     public static ItemStack create() {
-        return new ItemBuilder(Material.COPPER_CHAIN)
+        return new ItemBuilder(Material.WAXED_EXPOSED_COPPER_CHAIN)
                 .setDisplayName("§3§lHook")
                 .setAbilityName("§6Ability: Pull  §e§lRIGHT CLICK")
                 .addAbilityDescriptionLine("§7Pull the facing mob towards you.")
