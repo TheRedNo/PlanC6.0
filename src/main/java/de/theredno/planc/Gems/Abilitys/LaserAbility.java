@@ -1,4 +1,4 @@
-package de.theredno.planc.abilitys;
+package de.theredno.planc.Gems.Abilitys;
 
 import de.theredno.planc.Main;
 import org.bukkit.*;

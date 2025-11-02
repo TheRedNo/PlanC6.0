@@ -1,4 +1,4 @@
-package de.theredno.planc.abilitys;
+package de.theredno.planc.Gems.Abilitys;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

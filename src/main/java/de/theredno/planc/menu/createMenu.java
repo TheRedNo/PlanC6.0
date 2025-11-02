@@ -1,16 +1,15 @@
 package de.theredno.planc.menu;
 
 import de.theredno.planc.Main;
-import de.theredno.planc.api.GemAPI;
-import de.theredno.planc.api.createGem;
+import de.theredno.planc.Gems.API.GemAPI;
+import de.theredno.planc.Gems.API.createGem;
 import de.theredno.planc.manager.GemsConfigManager;
-import de.theredno.planc.util.Gems;
+import de.theredno.planc.Gems.Gems;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.HumanEntity;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,9 +22,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.w3c.dom.stylesheets.LinkStyle;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

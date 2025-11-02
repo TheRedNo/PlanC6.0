@@ -1,14 +1,18 @@
 package de.theredno.planc;
 
-import de.theredno.planc.api.GemAPI;
+import de.theredno.planc.Gems.API.GemAPI;
+import de.theredno.planc.Gems.Commands.GemsInvCommand;
+import de.theredno.planc.Gems.Commands.GiveCreateCommand;
+import de.theredno.planc.Gems.Commands.setLevel;
+import de.theredno.planc.Gems.Listeners.CrateListener;
+import de.theredno.planc.Gems.Listeners.GemListener;
 import de.theredno.planc.commands.*;
 import de.theredno.planc.listeners.*;
 import de.theredno.planc.manager.GemsConfigManager;
 import de.theredno.planc.menu.createMenu;
-import de.theredno.planc.util.Gems;
+import de.theredno.planc.Gems.Gems;
 import de.theredno.planc.util.ItemBuilder;
 import lombok.Getter;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {

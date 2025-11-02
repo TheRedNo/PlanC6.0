@@ -1,4 +1,4 @@
-package de.theredno.planc.commands;
+package de.theredno.planc.Gems.Commands;
 
 import de.theredno.planc.menu.createMenu;
 import org.bukkit.command.Command;

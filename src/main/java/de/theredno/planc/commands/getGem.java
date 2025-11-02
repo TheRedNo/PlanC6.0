@@ -2,19 +2,14 @@ package de.theredno.planc.commands;
 
 import de.theredno.planc.Main;
 import de.theredno.planc.manager.GemsConfigManager;
-import de.theredno.planc.util.Gems;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class getGem implements CommandExecutor {
     private final GemsConfigManager gemsConfigManager;

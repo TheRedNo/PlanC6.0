@@ -1,4 +1,4 @@
-package de.theredno.planc.api;
+package de.theredno.planc.Gems.API;
 
 import de.theredno.planc.manager.CooldownManager;
 import de.theredno.planc.manager.HealingGemManager;

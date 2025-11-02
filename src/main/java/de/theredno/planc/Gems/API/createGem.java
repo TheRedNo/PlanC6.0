@@ -1,10 +1,8 @@
-package de.theredno.planc.api;
+package de.theredno.planc.Gems.API;
 
 import de.theredno.planc.manager.CooldownManager;
-import de.theredno.planc.util.ItemBuilder;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;

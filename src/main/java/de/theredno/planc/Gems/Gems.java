@@ -1,9 +1,9 @@
-package de.theredno.planc.util;
+package de.theredno.planc.Gems;
 
+import de.theredno.planc.Gems.Abilitys.*;
 import de.theredno.planc.Main;
-import de.theredno.planc.abilitys.*;
-import de.theredno.planc.api.GemAPI;
-import de.theredno.planc.api.createGem;
+import de.theredno.planc.Gems.API.GemAPI;
+import de.theredno.planc.Gems.API.createGem;
 import de.theredno.planc.manager.HealingGemManager;
 import org.bukkit.*;
 import org.bukkit.attribute.AttributeInstance;
@@ -59,7 +59,7 @@ public class Gems {
                 p.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 120 * 20, 0, false));
             })
             .setShiftRightClickAbility(p -> {
-                new de.theredno.planc.abilitys.SphereShield(Main.getInstance(), p.getLocation(), 6.0, 10).start();
+                new SphereShield(Main.getInstance(), p.getLocation(), 6.0, 10).start();
                 p.getWorld().playSound(p.getLocation(), Sound.ITEM_SHIELD_BLOCK, 1f, 1f);
                 p.addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, 10 * 20, 2, false));
             })

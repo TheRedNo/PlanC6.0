@@ -1,7 +1,7 @@
-package de.theredno.planc.commands;
+package de.theredno.planc.Gems.Commands;
 
-import de.theredno.planc.api.GemAPI;
-import de.theredno.planc.api.createGem;
+import de.theredno.planc.Gems.API.GemAPI;
+import de.theredno.planc.Gems.API.createGem;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
