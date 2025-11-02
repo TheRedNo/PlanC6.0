@@ -1,4 +1,4 @@
-package de.theredno.planc.TPA;
+package de.theredno.planc.TPA.API;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

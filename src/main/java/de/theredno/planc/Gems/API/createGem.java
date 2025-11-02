@@ -1,6 +1,6 @@
 package de.theredno.planc.Gems.API;
 
-import de.theredno.planc.manager.CooldownManager;
+import de.theredno.planc.Gems.Manager.CooldownManager;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;

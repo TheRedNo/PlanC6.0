@@ -1,7 +1,7 @@
 package de.theredno.planc.commands;
 
 import de.theredno.planc.Main;
-import de.theredno.planc.manager.GemsConfigManager;
+import de.theredno.planc.Gems.Manager.GemsConfigManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

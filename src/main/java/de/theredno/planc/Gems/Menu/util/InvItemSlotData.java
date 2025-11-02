@@ -1,4 +1,4 @@
-package de.theredno.planc.menu;
+package de.theredno.planc.Gems.Menu.util;
 
 import org.bukkit.inventory.ItemStack;
 

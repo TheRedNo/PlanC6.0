@@ -1,4 +1,4 @@
-package de.theredno.planc.manager;
+package de.theredno.planc.Gems.Manager;
 
 import org.bukkit.entity.Player;
 

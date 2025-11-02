@@ -1,7 +1,7 @@
 package de.theredno.planc.Gems.Listeners;
 
 import de.theredno.planc.Main;
-import de.theredno.planc.manager.GemsConfigManager;
+import de.theredno.planc.Gems.Manager.GemsConfigManager;
 import de.theredno.planc.Gems.Gems;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

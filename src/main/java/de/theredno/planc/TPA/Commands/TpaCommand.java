@@ -1,6 +1,6 @@
-package de.theredno.planc.commands;
+package de.theredno.planc.TPA.Commands;
 
-import de.theredno.planc.TPA.TpaSystem;
+import de.theredno.planc.TPA.API.TpaSystem;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

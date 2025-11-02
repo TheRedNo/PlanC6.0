@@ -1,7 +1,7 @@
 package de.theredno.planc.Gems.API;
 
-import de.theredno.planc.manager.CooldownManager;
-import de.theredno.planc.manager.HealingGemManager;
+import de.theredno.planc.Gems.Manager.CooldownManager;
+import de.theredno.planc.Gems.Manager.HealingGemManager;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

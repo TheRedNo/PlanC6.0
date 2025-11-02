@@ -4,7 +4,7 @@ import de.theredno.planc.Gems.Abilitys.*;
 import de.theredno.planc.Main;
 import de.theredno.planc.Gems.API.GemAPI;
 import de.theredno.planc.Gems.API.createGem;
-import de.theredno.planc.manager.HealingGemManager;
+import de.theredno.planc.Gems.Manager.HealingGemManager;
 import org.bukkit.*;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.attribute.AttributeModifier;

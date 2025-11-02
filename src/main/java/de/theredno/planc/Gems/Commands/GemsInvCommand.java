@@ -1,6 +1,6 @@
 package de.theredno.planc.Gems.Commands;
 
-import de.theredno.planc.menu.createMenu;
+import de.theredno.planc.Gems.Menu.createMenu;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

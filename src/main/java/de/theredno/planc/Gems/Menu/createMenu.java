@@ -1,9 +1,10 @@
-package de.theredno.planc.menu;
+package de.theredno.planc.Gems.Menu;
 
+import de.theredno.planc.Gems.Menu.util.InvItemSlotData;
 import de.theredno.planc.Main;
 import de.theredno.planc.Gems.API.GemAPI;
 import de.theredno.planc.Gems.API.createGem;
-import de.theredno.planc.manager.GemsConfigManager;
+import de.theredno.planc.Gems.Manager.GemsConfigManager;
 import de.theredno.planc.Gems.Gems;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
