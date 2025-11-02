@@ -23,8 +23,12 @@ public class HookAbility implements ItemAbility {
 
     @Override
     public void execute(Player player) {
+        ItemStack hook = player.getItemInHand();
+        if (player.getCooldown(hook) > 0) return;
+
         Location start = player.getLocation().clone().add(0, 1.0, 0);
         Vector direction = player.getEyeLocation().getDirection().normalize();
+
 
         new BukkitRunnable() {
             Location hookLocation = start.clone();
@@ -37,6 +41,12 @@ public class HookAbility implements ItemAbility {
                 if (hookFlying) {
                     hookLocation.add(direction.clone().multiply(hookSpeed));
                     hookLocation.getWorld().playSound(hookLocation, Sound.ENTITY_SNOWBALL_THROW, 0.5f, 1f);
+
+                    if (hookLocation.getBlock().getType().isSolid()) {
+                        removeChain(chain);
+                        this.cancel();
+                        return;
+                    }
 
                     for (Entity entity : hookLocation.getWorld().getNearbyEntities(hookLocation, hitRadius, hitRadius, hitRadius)) {
                         if (entity instanceof LivingEntity && entity != player && !(entity instanceof ArmorStand)) {
@@ -75,6 +85,9 @@ public class HookAbility implements ItemAbility {
                 }
             }
         }.runTaskTimer(Main.getInstance(), 0L, 1L);
+
+        player.setCooldown(hook, 200);
+
     }
 
     private void spawnChain(Location start, Location end, List<ArmorStand> chain) {
@@ -107,7 +120,7 @@ public class HookAbility implements ItemAbility {
 
                 as.getEquipment().setHelmet(helmet);
             });
-            
+
             Vector dir = end.toVector().subtract(stand.getLocation().toVector());
             Location fixedLoc = stand.getLocation().clone();
             fixedLoc.setDirection(dir);
