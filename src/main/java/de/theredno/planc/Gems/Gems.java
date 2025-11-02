@@ -25,13 +25,26 @@ import java.util.Map;
 
 public class Gems {
 
+/*
+            .setLore(List.of("", "§6Ability:  §e§lLEFT CLICK",
+                    "§7",
+                    "§6Ability:  §e§lRIGHT CLICK",
+                    "§7",
+                    "§6Ability:  §e§lSHIFT RIGHT CLICK",
+                    "§7"
+                    ))
+ */
     public static final createGem strengthGem = new createGem("strength_gem", Material.EMERALD)
-            .setDisplayName(ChatColor.GREEN + "Strength Gem")
+            .setDisplayName(ChatColor.GREEN + "§lStrength Gem")
             .setLevel(1)
-            .setLore(List.of("", ChatColor.GREEN + "Abilities:",
-                    ChatColor.BLUE + "Leftclick: " + ChatColor.RESET + "Throws nearby players into the air and they take damage",
-                    ChatColor.BLUE + "Rightclick: " + ChatColor.RESET + "You get Saturation, Strength and Resistance",
-                    ChatColor.BLUE + "Shift-Rightclick: " + ChatColor.RESET + "A shield that protects you from attacks"))
+            .setLore(List.of("", "§6Ability:  §e§lLEFT CLICK",
+                    "§7Launch nearby players in to the air.",
+                    "§6Ability:  §e§lLEFT CLICK",
+                    "§7Gain Saturation, Strength, and Resistance for 2 minutes",
+                    "§6Ability:  §e§lSHIFT RIGHT CLICK",
+                    "§7Summon a sphere with a radius of 10 blocks that",
+                    "§7blocks attacks from outside"
+                    ))
             .setLeftClickAbility(p -> {
                 List<Player> inArea = new ArrayList<>();
                 Location center = p.getLocation();
@@ -70,12 +83,16 @@ public class Gems {
             .setItemModelTexture("planc", "strength_gem");
 
     public static final createGem healingGem = new createGem("healing_gem", Material.EMERALD)
-            .setDisplayName(ChatColor.GREEN + "Healing Gem")
+            .setDisplayName(ChatColor.GREEN + "§lHealing Gem")
             .setLevel(1)
-            .setLore(List.of("", ChatColor.GREEN + "Abilities:",
-                    ChatColor.BLUE + "Leftclick: " + ChatColor.RESET + "Heart Lock from the nearest player",
-                    ChatColor.BLUE + "Rightclick: " + ChatColor.RESET + "You get Regeneration II",
-                    ChatColor.BLUE + "Shift-Rightclick: " + ChatColor.RESET + "Your hearts will be fully healed"))
+            .setLore(List.of("", "§6Ability:  §e§lLEFT CLICK",
+                    "§7Lock the nearest player's max hearts",
+                    "§7to their current health for 5 seconds",
+                    "§6Ability:  §e§lRIGHT CLICK",
+                    "§7Gain Regeneration II",
+                    "§6Ability:  §e§lSHIFT RIGHT CLICK",
+                    "§7Fully restore your health"
+            ))
             .setLeftClickAbility(p -> {
                 Location location = p.getLocation();
 
@@ -117,12 +134,16 @@ public class Gems {
             .setItemModelTexture("planc", "healing_gem");
 
     public static final createGem airgem = new createGem("air_gem", Material.EMERALD)
-            .setDisplayName(ChatColor.GREEN + "Air Gem")
+            .setDisplayName(ChatColor.GREEN + "§lAir Gem")
             .setLevel(1)
-            .setLore(List.of("", ChatColor.GREEN + "Abilities:",
-                    ChatColor.BLUE + "Leftclick: " + ChatColor.RESET + "All players within a radius of 10 blocks get slowfalling",
-                    ChatColor.BLUE + "Rightclick: " + ChatColor.RESET + "All players within a radius of 10 are thrown into the air",
-                    ChatColor.BLUE + "Shift-Rightclick: " + ChatColor.RESET + "Makes a cloud you dash in the direction you are looking and become invisible for 2min"))
+            .setLore(List.of("", "§6Ability:  §e§lLEFT CLICK",
+                    "§7Give all players within 10 blocks Slow Falling",
+                    "§6Ability:  §e§lRIGHT CLICK",
+                    "§7Launch all players within 10 blocks into the air",
+                    "§6Ability:  §e§lSHIFT RIGHT CLICK",
+                    "§7Create a cloud you dash through in your facing direction",
+                    "§7and become invisible for 2 minutes"
+            ))
             .setLeftClickAbility(p -> {
                 List<Player> inArea = new ArrayList<>();
                 Location center = p.getLocation();
@@ -183,12 +204,16 @@ public class Gems {
             .setItemModelTexture("planc", "air_gem");
 
     public static createGem firegem = new createGem("fire_gem", Material.EMERALD)
-            .setDisplayName(ChatColor.GREEN + "Fire Gem")
+            .setDisplayName(ChatColor.GREEN + "§lFire Gem")
             .setLevel(1)
-            .setLore(List.of("", ChatColor.GREEN + "Abilities:",
-                    ChatColor.BLUE + "Leftclick: " + ChatColor.RESET + "Shoots a fireball in the direction of view",
-                    ChatColor.BLUE + "Rightclick: " + ChatColor.RESET + "Gives you Fire Resistance, Speed II and Haste II",
-                    ChatColor.BLUE + "Shift-Rightclick: " + ChatColor.RESET + "Makes an explosion and deals 5 hearts of damage to players within a 10 block radius"))
+            .setLore(List.of("", "§6Ability:  §e§lLEFT CLICK",
+                    "§7Shoot a fireball in your viewing direction",
+                    "§6Ability:  §e§lRIGHT CLICK",
+                    "§7Gain Fire Resistance, Speed II, and Haste II",
+                    "§6Ability:  §e§lSHIFT RIGHT CLICK",
+                    "§7Create an explosion that deals 5 hearts of damage",
+                    "§7to all players within 10 blocks"
+            ))
             .setLeftClickAbility(p -> {
                 Location location = p.getEyeLocation();
                 Vector direction = location.getDirection();
@@ -238,12 +263,17 @@ public class Gems {
             .setItemModelTexture("planc", "fire_gem");
 
     public static createGem irongem = new createGem("iron_gem", Material.EMERALD)
-            .setDisplayName(ChatColor.GREEN + "Iron Gem")
+            .setDisplayName(ChatColor.GREEN + "§lIron Gem")
             .setLevel(1)
-            .setLore(List.of("", ChatColor.GREEN + "Abilities:",
-                    ChatColor.BLUE + "Leftclick: " + ChatColor.RESET + "Fires a barrage of spectral arrows in a circle shape",
-                    ChatColor.BLUE + "Rightclick: " + ChatColor.RESET + "Temporarily grants the user increased absorption and knockback resistance",
-                    ChatColor.BLUE + "Shift-Rightclick: " + ChatColor.RESET + "Temporarily increases the player's armour and armour toughness"))
+            .setLore(List.of("", "§6Ability:  §e§lLEFT CLICK",
+                    "§7Shoot spectral arrows in a circle around you",
+                    "§6Ability:  §e§lRIGHT CLICK",
+                    "§7Temporarily grant Absorption II" +
+                            "§7and Knockback Resistance for 10 seconds",
+                    "§6Ability:  §e§lSHIFT RIGHT CLICK",
+                    "§7Temporarily boost Armour and Armour Toughness" +
+                            "§7for 10 seconds"
+            ))
             .setLeftClickAbility(p -> {
                 Location center = p.getLocation().add(0, 1.5, 0); // etwas über dem Boden
                 World world = center.getWorld();
@@ -324,12 +354,16 @@ public class Gems {
             .setItemModelTexture("planc", "iron_gem");
 
     public static createGem lightninggem = new createGem("lightning_gem", Material.EMERALD)
-            .setDisplayName(ChatColor.GREEN + "Lightning Gem")
+            .setDisplayName(ChatColor.GREEN + "§lLightning Gem")
             .setLevel(1)
-            .setLore(List.of("", ChatColor.GREEN + "Abilities:",
-                    ChatColor.BLUE + "Leftclick: " + ChatColor.RESET + "Launches the user forward in the direction they are looking at",
-                    ChatColor.BLUE + "Rightclick: " + ChatColor.RESET + "Strikes lightning at position the user is aiming at and anything nearby, damaging them",
-                    ChatColor.BLUE + "Shift-Rightclick: " + ChatColor.RESET + "Gives you Haste III and Speed IV"))
+            .setLore(List.of("", "§6Ability:  §e§lLEFT CLICK",
+                    "§7Launch yourself forward in the direction you are facing",
+                    "§6Ability:  §e§lRIGHT CLICK",
+                    "§7Strike lightning at your target location," +
+                            "§7damaging nearby entities",
+                    "§6Ability:  §e§lSHIFT RIGHT CLICK",
+                    "§7Gain Haste III and Speed IV for 10 seconds"
+            ))
             .setLeftClickAbility(p -> {
                 Vector direction = p.getLocation().getDirection();
                 direction.multiply(3.5);
@@ -382,12 +416,15 @@ public class Gems {
             .setItemModelTexture("planc", "lightning_gem");
 
     public static createGem sandgem = new createGem("sand_gem", Material.EMERALD)
-            .setDisplayName(ChatColor.GREEN + "Sand Gem")
+            .setDisplayName(ChatColor.GREEN + "§lSand Gem")
             .setLevel(1)
-            .setLore(List.of("", ChatColor.GREEN + "Abilities:",
-                    ChatColor.BLUE + "Leftclick: " + ChatColor.RESET + "Gives the target player a temporary slowness effect",
-                    ChatColor.BLUE + "Rightclick: " + ChatColor.RESET + "Gives the target player a temporary weakness effect",
-                    ChatColor.BLUE + "Shift-Rightclick: " + ChatColor.RESET + "Gives the target player a temporary blindess effect"))
+            .setLore(List.of("", "§6Ability:  §e§lLEFT CLICK",
+                    "§7Apply Slowness to the target player for 20 seconds",
+                    "§6Ability:  §e§lRIGHT CLICK",
+                    "§7Apply Weakness to the target player for 15 seconds",
+                    "§6Ability:  §e§lSHIFT RIGHT CLICK",
+                    "§7Apply Blindness to the target player for 20 seconds"
+            ))
             .setLeftClickAbility(p -> {
                 LaserAbility.shootLaser(p, 30, 4, PotionEffectType.SLOWNESS, 20 * 20, 1);
             })
@@ -403,12 +440,15 @@ public class Gems {
             .setItemModelTexture("planc", "sand_gem");
 
     public static createGem icegem = new createGem("ice_gem", Material.EMERALD)
-            .setDisplayName(ChatColor.GREEN + "Ice Gem")
+            .setDisplayName(ChatColor.GREEN + "§lIce Gem")
             .setLevel(1)
-            .setLore(List.of("", ChatColor.GREEN + "Abilities:",
-                    ChatColor.BLUE + "Leftclick: " + ChatColor.RESET + "Gives the target player temporary slowness effect",
-                    ChatColor.BLUE + "Rightclick: " + ChatColor.RESET + "Throws an ice block, dealing damage to anything that gets hit",
-                    ChatColor.BLUE + "Shift-Rightclick: " + ChatColor.RESET + "Spawns snow golems on the user to fight for them"))
+            .setLore(List.of("", "§6Ability:  §e§lLEFT CLICK",
+                    "§7Apply Slowness to the target player for 7 seconds",
+                    "§6Ability:  §e§lRIGHT CLICK",
+                    "§7Throw an ice block, dealing damage to anything it hits",
+                    "§6Ability:  §e§lSHIFT RIGHT CLICK",
+                    "§7Summon 3 Snow Golems to fight for you"
+            ))
             .setLeftClickAbility(p -> {
                 SlownessAbility.applyTargetedSlowness(p, 15, 7 * 20, 0);
             })
@@ -425,12 +465,15 @@ public class Gems {
             .setItemModelTexture("planc", "ice_gem");
 
     public static createGem lavagem = new createGem("lava_gem", Material.EMERALD)
-            .setDisplayName(ChatColor.GREEN + "Lava Gem")
+            .setDisplayName(ChatColor.GREEN + "§lLava Gem")
             .setLevel(1)
-            .setLore(List.of("", ChatColor.GREEN + "Abilities:",
-                    ChatColor.BLUE + "Leftclick: " + ChatColor.RESET + "Provides the user with temporary effect of Fire resistance",
-                    ChatColor.BLUE + "Rightclick: " + ChatColor.RESET + "Creates a ring of lava around the user",
-                    ChatColor.BLUE + "Shift-Rightclick: " + ChatColor.RESET + "Spawns blazes on the user to fight for them"))
+            .setLore(List.of("", "§6Ability:  §e§lLEFT CLICK",
+                    "§7Grant yourself Fire Resistance for 1 minute",
+                    "§6Ability:  §e§lRIGHT CLICK",
+                    "§7Create a ring of lava around you",
+                    "§6Ability:  §e§lSHIFT RIGHT CLICK",
+                    "§7Summon 3 Blazes to fight for you"
+            ))
             .setLeftClickAbility(p -> {
                 p.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 60 * 20, 0, false));
             })
@@ -448,12 +491,15 @@ public class Gems {
             .setItemModelTexture("planc", "lava_gem");
 
     public static createGem watergem = new createGem("water_gem", Material.EMERALD)
-            .setDisplayName(ChatColor.GREEN + "Water Gem")
+            .setDisplayName(ChatColor.GREEN + "§lWater Gem")
             .setLevel(1)
-            .setLore(List.of("", ChatColor.GREEN + "Abilities:",
-                    ChatColor.BLUE + "Leftclick: " + ChatColor.RESET + "Makes the nearest player suffocate",
-                    ChatColor.BLUE + "Rightclick: " + ChatColor.RESET + "Boost you in the Water like a trident",
-                    ChatColor.BLUE + "Shift-Rightclick: " + ChatColor.RESET + "Create a temporary water cube around you"))
+            .setLore(List.of("", "§6Ability:  §e§lLEFT CLICK",
+                    "§7Cause the nearest player to suffocate",
+                    "§6Ability:  §e§lRIGHT CLICK",
+                    "§7Propel yourself through water like a Trident",
+                    "§6Ability:  §e§lSHIFT RIGHT CLICK",
+                    "§7Create a 3×3×3 water cube around you for 10 seconds"
+            ))
             .setLeftClickAbility(p -> {
 
                 Location location = p.getLocation();

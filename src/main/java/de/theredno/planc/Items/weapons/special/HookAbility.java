@@ -140,7 +140,7 @@ public class HookAbility implements ItemAbility {
         }
         }.runTaskTimer(Main.getInstance(), 0L, 1L);
 
-        //player.setCooldown(hook, 200);
+        player.setCooldown(hook, 200);
     }
 
 
