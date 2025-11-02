@@ -1,7 +1,7 @@
-package de.theredno.planc.commands;
+package de.theredno.planc.Commands;
 
-import de.theredno.planc.items.weapons.scythes.Bloodscythe;
-import de.theredno.planc.items.weapons.special.Hook;
+import de.theredno.planc.Items.weapons.scythes.Bloodscythe;
+import de.theredno.planc.Items.weapons.special.Hook;
 import de.theredno.planc.Gems.Gems;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

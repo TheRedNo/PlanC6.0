@@ -1,4 +1,4 @@
-package de.theredno.planc.items.weapons.special;
+package de.theredno.planc.Items.weapons.special;
 
 import de.theredno.planc.Main;
 import de.theredno.planc.util.ItemAbility;
@@ -8,7 +8,6 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 import java.util.ArrayList;

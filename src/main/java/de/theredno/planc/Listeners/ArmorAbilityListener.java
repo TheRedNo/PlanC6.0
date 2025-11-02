@@ -1,4 +1,4 @@
-package de.theredno.planc.listeners;
+package de.theredno.planc.Listeners;
 
 import com.destroystokyo.paper.event.player.PlayerArmorChangeEvent;
 import de.theredno.planc.util.AbilityTrigger;

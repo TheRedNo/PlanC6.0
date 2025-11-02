@@ -1,4 +1,4 @@
-package de.theredno.planc.listeners;
+package de.theredno.planc.Listeners;
 
 import de.theredno.planc.util.AbilityTrigger;
 import de.theredno.planc.util.ItemAbility;

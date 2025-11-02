@@ -1,7 +1,6 @@
-package de.theredno.planc.listeners;
+package de.theredno.planc.Listeners;
 
 import de.theredno.planc.Main;
-import de.theredno.planc.items.weapons.scythes.Bloodscythe;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -12,7 +11,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class DamageListener implements Listener {
 

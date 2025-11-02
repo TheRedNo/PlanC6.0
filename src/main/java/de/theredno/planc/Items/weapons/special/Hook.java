@@ -1,6 +1,5 @@
-package de.theredno.planc.items.weapons.special;
+package de.theredno.planc.Items.weapons.special;
 
-import de.theredno.planc.items.weapons.scythes.BloodscytheAbility;
 import de.theredno.planc.util.AbilityTrigger;
 import de.theredno.planc.util.ItemBuilder;
 import org.bukkit.Material;

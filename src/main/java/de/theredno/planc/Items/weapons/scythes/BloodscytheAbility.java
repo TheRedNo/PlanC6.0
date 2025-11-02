@@ -1,4 +1,4 @@
-package de.theredno.planc.items.weapons.scythes;
+package de.theredno.planc.Items.weapons.scythes;
 
 import de.theredno.planc.Main;
 import de.theredno.planc.util.ItemAbility;
