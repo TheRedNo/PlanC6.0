@@ -54,9 +54,10 @@ public class CrateListener implements Listener {
         ItemStack item = event.getItem();
         if (item == null || !item.hasItemMeta()) return;
 
-        if (item.getItemMeta().getDisplayName().equals("§6Gem Slot")) {
+        if (item.getItemMeta().getDisplayName().equals("§6Gem Crate")) {
             event.setCancelled(true);
             openGemSlotInventory(player);
+            player.getInventory().removeItem(item);
         }
     }
 

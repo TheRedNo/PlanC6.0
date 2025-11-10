@@ -1,5 +1,7 @@
 package de.theredno.planc;
 
+import de.theredno.planc.GameMechanics.Crafting.GemCrate;
+import de.theredno.planc.GameMechanics.DispenserPlaceBlock.OnDispense;
 import de.theredno.planc.Gems.API.GemAPI;
 import de.theredno.planc.Gems.Commands.*;
 import de.theredno.planc.Gems.Listeners.CrateListener;
@@ -30,12 +32,15 @@ public final class Main extends JavaPlugin {
 
         ItemBuilder.setPlugin(this);
 
+        GemCrate.initCraftingRecipe();
+
         getServer().getPluginManager().registerEvents(new GemListener(), this);
         getServer().getPluginManager().registerEvents(new DamageListener(), this);
 
         getServer().getPluginManager().registerEvents(new ArmorAbilityListener(this), this);
         getServer().getPluginManager().registerEvents(new ItemAbilityListener(this), this);
 
+        getServer().getPluginManager().registerEvents(new OnDispense(), this);
 
 
         getCommand("give_all_items").setExecutor(new giveAllItems());
