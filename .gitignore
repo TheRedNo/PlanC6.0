@@ -119,3 +119,4 @@ buildNumber.properties
 
 # Common working directory
 run/
+src/main/java/de/theredno/planc/MySQL/LoginData.java

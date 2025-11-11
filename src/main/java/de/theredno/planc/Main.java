@@ -6,6 +6,8 @@ import de.theredno.planc.Gems.API.GemAPI;
 import de.theredno.planc.Gems.Commands.*;
 import de.theredno.planc.Gems.Listeners.CrateListener;
 import de.theredno.planc.Gems.Listeners.GemListener;
+import de.theredno.planc.MySQL.LoginData;
+import de.theredno.planc.MySQL.MySQL;
 import de.theredno.planc.TPA.Commands.TpaCommand;
 import de.theredno.planc.Commands.*;
 import de.theredno.planc.Listeners.*;
@@ -22,9 +24,12 @@ public final class Main extends JavaPlugin {
     private static Main instance;
     @Getter
     private static GemsConfigManager gemsConfigManager;
+    private MySQL mysql;
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+
         instance = this;
         GemAPI api = new GemAPI(this);
         gemsConfigManager = new GemsConfigManager(this);
@@ -33,6 +38,8 @@ public final class Main extends JavaPlugin {
         ItemBuilder.setPlugin(this);
 
         GemCrate.initCraftingRecipe();
+
+        mysql = LoginData.getLogin();
 
         getServer().getPluginManager().registerEvents(new GemListener(), this);
         getServer().getPluginManager().registerEvents(new DamageListener(), this);
