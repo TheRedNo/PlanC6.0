@@ -39,7 +39,7 @@ public class Gems {
             .setLevel(1)
             .setLore(List.of("", "§6Ability:  §e§lLEFT CLICK",
                     "§7Launch nearby players in to the air.",
-                    "§6Ability:  §e§lLEFT CLICK",
+                    "§6Ability:  §e§RIGHT CLICK",
                     "§7Gain Saturation, Strength, and Resistance for 2 minutes",
                     "§6Ability:  §e§lSHIFT RIGHT CLICK",
                     "§7Summon a sphere with a radius of 10 blocks that",

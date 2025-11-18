@@ -178,7 +178,6 @@ public class createGem {
 
         if (CooldownManager.isOnCooldown(player, gemId, "left")) {
             long left = CooldownManager.getRemaining(player, gemId, "left") / 1000;
-            player.sendMessage("§7Cooldown: §c" + left + "s");
             return;
         }
 
@@ -194,7 +193,6 @@ public class createGem {
 
         if (CooldownManager.isOnCooldown(player, gemId, "right")) {
             long right = CooldownManager.getRemaining(player, gemId, "right") / 1000;
-            player.sendMessage("§7Cooldown: §c" + right + "s");
             return;
         }
 
@@ -209,7 +207,6 @@ public class createGem {
 
         if (CooldownManager.isOnCooldown(player, gemId, "shiftRight")) {
             long shiftRight = CooldownManager.getRemaining(player, gemId, "shiftRight") / 1000;
-            player.sendMessage("§7Cooldown: §c" + shiftRight + "s");
             return;
         }
 

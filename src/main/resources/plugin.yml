@@ -17,3 +17,6 @@ commands:
   createcrate:
     permission: planc.crate
   tpa:
+  dashboard:
+    permission: planc.admin
+  account:
