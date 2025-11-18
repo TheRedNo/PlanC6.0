@@ -9,28 +9,31 @@ import java.sql.SQLException;
 import java.util.UUID;
 
 public class DiamondManager {
-    public static long getZinsLong(int playerID) {
-        try {
-            PreparedStatement ps = Main.getInstance().getMysql().getConnection().prepareStatement("SELECT last FROM zinsTimeTabel WHERE playerID=?");
+    public static long getZinsLong(int playerID, Connection conn) throws SQLException {
+        try (PreparedStatement ps = conn.prepareStatement("SELECT last FROM zinsTimeTabel WHERE playerID=?")) {
             ps.setInt(1, playerID);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                return rs.getLong("last");
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getLong("last");
+                }
             }
-        } catch (SQLException e) {
-            e.printStackTrace(); } return -1;
+        }
+        return -1;
     }
 
     public static int getDiamonds(int playerID) {
-        try {
-            PreparedStatement ps = Main.getInstance().getMysql().getConnection().prepareStatement("SELECT diamonds FROM player_statistic WHERE playerID=?");
+        try (Connection conn = Main.getInstance().getMysql().getConnection();
+             PreparedStatement ps = conn.prepareStatement("SELECT diamonds FROM player_statistic WHERE playerID=?")) {
             ps.setInt(1, playerID);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                return rs.getInt("diamonds");
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("diamonds");
+                }
             }
         } catch (SQLException e) {
-            e.printStackTrace(); } return -1;
+            e.printStackTrace();
+        }
+        return -1;
     }
 
     public static void updateDiamonds(int playerID, int dias, Connection conn) {

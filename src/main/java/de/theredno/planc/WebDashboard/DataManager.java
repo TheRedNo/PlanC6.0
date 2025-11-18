@@ -63,6 +63,7 @@ public class DataManager {
             try (var rs = ps.executeQuery()) {
                 if (rs.next()) return rs.getInt("playerID");
             }
+
         }
         return -1;
     }

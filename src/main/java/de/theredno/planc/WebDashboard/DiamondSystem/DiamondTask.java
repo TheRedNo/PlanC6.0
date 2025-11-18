@@ -24,7 +24,7 @@ public class DiamondTask {
                         int playerID = DataManager.getPlayerIDWithConn(player.getUniqueId(), conn);
                         if (playerID == -1) continue;
 
-                        long lastLong = DiamondManager.getZinsLong(playerID);
+                        long lastLong = DiamondManager.getZinsLong(playerID, conn);
                         long twoMinute = 2 * 60 * 1000;
 
                         if (System.currentTimeMillis() - lastLong >= twoMinute) {
