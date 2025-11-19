@@ -27,18 +27,24 @@ public class DiamondListener implements Listener {
         if (e.getView().getTitle().equals(ChatColor.BLUE + "Diamond Account")) {
             int slot = e.getSlot();
 
-            if (slot == 7) {
-                ItemStack item = e.getInventory().getItem(7);
-                int amount = item.getAmount();
-
-                if (item.getType().equals(Material.DIAMOND)) {
-                    try {
-                        DiamondManager.updateDiamonds(playerID, amount, Main.getInstance().getMysql().getConnection());
-                        Main.getInstance().getMysql().getConnection().close();
-                    } catch (SQLException exception) {
-                        exception.printStackTrace();
-                    }
+           if (slot == 7) {
+    ItemStack item = e.getInventory().getItem(7);
+    if (item != null) {
+        int amount = item.getAmount();
+        Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> {
+            try (var conn = Main.getInstance().getMysql().getConnection()) {
+                if (item.getType() == Material.DIAMOND) {
+                    DiamondManager.updateDiamondsWithConn(playerID, amount, conn);
+                } else if (item.getType() == Material.DIAMOND_BLOCK) {
+                    DiamondManager.updateDiamondsWithConn(playerID, amount * 9, conn);
                 }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        });
+    }
+}
+
 
                 if (item.getType().equals(Material.DIAMOND_BLOCK)) {
                     try {
