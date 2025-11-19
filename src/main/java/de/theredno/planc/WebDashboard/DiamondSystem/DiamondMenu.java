@@ -1,9 +1,11 @@
 package de.theredno.planc.WebDashboard.DiamondSystem;
 
 import de.theredno.planc.Main;
+import de.theredno.planc.WebDashboard.DataManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -36,7 +38,6 @@ public class DiamondMenu {
         bankInv.setItem(3, none);
         bankInv.setItem(4, none);
         bankInv.setItem(6, none);
-        bankInv.setItem(7, none);
 
         bankInv.setItem(1, dia);
         bankInv.setItem(2, diaBlock);
@@ -44,5 +45,14 @@ public class DiamondMenu {
         bankInv.setItem(8, new ItemStack(Material.PAPER));
 
         return bankInv;
+    }
+
+    public static void openDiaInv(Inventory inventory, Player player) {
+        int playerID = DataManager.getPlayerID(player.getUniqueId());
+        int diamonds = DiamondManager.getDiamonds(playerID);
+
+        inventory.getItem(8).getItemMeta().setDisplayName(ChatColor.AQUA + String.valueOf(diamonds) + " Diamonds");
+
+        player.openInventory(inventory);
     }
 }

@@ -95,6 +95,8 @@ public final class Main extends JavaPlugin {
         getCommand("dashboard").setExecutor(new DashboardCommand());
         getCommand("account").setExecutor(new AccountCommand());
 
+        getCommand("summon_atm").setExecutor(new ATMCommand());
+
 
 
         getServer().getPluginManager().registerEvents(new CrateListener(), this);

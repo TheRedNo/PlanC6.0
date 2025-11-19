@@ -20,3 +20,5 @@ commands:
   dashboard:
     permission: planc.admin
   account:
+  summon_atm:
+    permission: planc.admin
